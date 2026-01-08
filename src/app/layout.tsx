@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EB_Garamond, Inter } from "next/font/google";
+import { EB_Garamond, Inter, Courier_Prime } from "next/font/google";
 import "./globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -14,9 +14,16 @@ const inter = Inter({
   display: "swap",
 });
 
+const courierPrime = Courier_Prime({
+  variable: "--font-courier",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Compound VC Thesis Database",
-  description: "Explore investment theses from Compound VC - perspectives on transformative technologies and markets shaping the future of innovation.",
+  title: "Compound Thesis Database",
+  description: "A living document of investment theses, research notes, and market perspectives from Compound.",
 };
 
 export default function RootLayout({
@@ -25,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ebGaramond.variable} ${inter.variable}`}>
+    <html lang="en" className={`${ebGaramond.variable} ${inter.variable} ${courierPrime.variable}`}>
       <body className="bg-cream text-charcoal antialiased">
         {children}
       </body>

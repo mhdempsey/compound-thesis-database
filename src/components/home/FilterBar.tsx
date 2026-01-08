@@ -31,17 +31,17 @@ export function FilterBar({
   };
 
   return (
-    <div className="sticky top-16 z-40 bg-cream/90 backdrop-blur-sm py-4 border-b border-charcoal/10">
+    <div className="sticky top-14 z-40 bg-cream/95 backdrop-blur-sm py-4 border-b border-charcoal/5">
       <Container>
         <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
           {/* Category filters */}
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => onCategoryChange([])}
-              className={`px-4 py-2 text-sm rounded-full border transition-all ${
+              className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider rounded-full border transition-all duration-200 ${
                 selectedCategories.length === 0
-                  ? "bg-charcoal text-white border-charcoal"
-                  : "bg-white text-charcoal-light border-charcoal/20 hover:border-charcoal/40"
+                  ? "bg-charcoal text-cream border-charcoal"
+                  : "bg-transparent text-charcoal/60 border-charcoal/15 hover:border-charcoal/30 hover:text-charcoal"
               }`}
             >
               All
@@ -50,10 +50,10 @@ export function FilterBar({
               <button
                 key={category}
                 onClick={() => toggleCategory(category)}
-                className={`px-4 py-2 text-sm rounded-full border transition-all ${
+                className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider rounded-full border transition-all duration-200 ${
                   selectedCategories.includes(category)
-                    ? "bg-charcoal text-white border-charcoal"
-                    : "bg-white text-charcoal-light border-charcoal/20 hover:border-charcoal/40"
+                    ? "bg-charcoal text-cream border-charcoal"
+                    : "bg-transparent text-charcoal/60 border-charcoal/15 hover:border-charcoal/30 hover:text-charcoal"
                 }`}
               >
                 {category}
@@ -62,7 +62,7 @@ export function FilterBar({
           </div>
 
           {/* Search and view toggle */}
-          <div className="flex items-center gap-4 w-full lg:w-auto">
+          <div className="flex items-center gap-3 w-full lg:w-auto">
             <SearchInput value={searchQuery} onChange={onSearchChange} />
             <ViewToggle mode={viewMode} onChange={onViewModeChange} />
           </div>

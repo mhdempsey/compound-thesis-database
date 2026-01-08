@@ -22,16 +22,16 @@ export function SearchInput({ value, onChange }: SearchInputProps) {
   };
 
   return (
-    <div className="relative flex-1 lg:flex-none lg:w-64">
+    <div className="relative flex-1 lg:flex-none lg:w-56">
       <input
         type="text"
         value={localValue}
         onChange={handleChange}
-        placeholder="Search theses..."
-        className="w-full px-4 py-2 pl-10 text-sm border border-charcoal/20 rounded-full bg-white focus:outline-none focus:border-charcoal/40 focus:ring-1 focus:ring-charcoal/20 transition-all"
+        placeholder="Search..."
+        className="w-full px-3 py-1.5 pl-8 font-mono text-xs border border-charcoal/15 rounded-full bg-transparent placeholder:text-charcoal/30 focus:outline-none focus:border-charcoal/30 focus:bg-white/50 transition-all"
       />
       <svg
-        className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-light"
+        className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-charcoal/30"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -39,7 +39,7 @@ export function SearchInput({ value, onChange }: SearchInputProps) {
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={2}
+          strokeWidth={1.5}
           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
         />
       </svg>

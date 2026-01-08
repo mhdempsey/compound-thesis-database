@@ -4,7 +4,7 @@
   --background: #FAFAF8;
   --foreground: #1A1A1A;
   --cream: #FAFAF8;
-  --cream-dark: #F5F5F0;
+  --cream-dark: #F0EFE9;
   --charcoal: #1A1A1A;
   --charcoal-light: #4A4A4A;
 }
@@ -18,6 +18,7 @@
   --color-charcoal-light: var(--charcoal-light);
   --font-serif: var(--font-eb-garamond), Georgia, serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-courier), "Courier New", Courier, monospace;
 }
 
 html {
@@ -33,7 +34,12 @@ body {
 }
 
 ::selection {
-  background-color: rgba(26, 26, 26, 0.1);
+  background-color: rgba(26, 26, 26, 0.15);
+}
+
+/* Monospace/Courier utility */
+.font-mono {
+  font-family: var(--font-mono);
 }
 
 /* Prose styles for Notion content */
@@ -85,4 +91,14 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Scientific/artistic aesthetic accents */
+.scientific-border {
+  border: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+/* Smooth image corners like La Playa */
+.rounded-artistic {
+  border-radius: 1.5rem;
 }

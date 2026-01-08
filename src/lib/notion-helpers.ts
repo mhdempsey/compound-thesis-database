@@ -207,15 +207,18 @@ export function filterByCategories(
 }
 
 // Group theses by year for timeline view
+// Uses publicationDate if available, otherwise falls back to lastEditedAt
 export function groupThesesByYear(
   theses: Thesis[]
 ): Record<string, Record<string, Thesis[]>> {
   const grouped: Record<string, Record<string, Thesis[]>> = {};
 
   for (const thesis of theses) {
-    if (!thesis.publicationDate) continue;
+    // Use publication date if available, otherwise use last edited time
+    const dateStr = thesis.publicationDate || thesis.lastEditedAt;
+    if (!dateStr) continue;
 
-    const date = new Date(thesis.publicationDate);
+    const date = new Date(dateStr);
     const year = date.getFullYear().toString();
     const month = date.toLocaleDateString("en-US", { month: "long" });
 
