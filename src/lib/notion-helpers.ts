@@ -93,9 +93,10 @@ export async function getPublishedTheses(): Promise<Thesis[]> {
           equals: "Ready to Publish",
         },
       },
+      // Sort by last edited time (always available) as fallback
       sorts: [
         {
-          property: "Publication Date",
+          timestamp: "last_edited_time",
           direction: "descending",
         },
       ],
