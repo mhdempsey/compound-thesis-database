@@ -14,6 +14,40 @@ interface FilterBarProps {
   onViewModeChange: (mode: ViewMode) => void;
 }
 
+// Category colors for active state
+const categoryColors: Record<ThesisCategory, { active: string; hover: string; dot: string }> = {
+  Healthcare: {
+    active: "bg-emerald-500 text-white border-emerald-500",
+    hover: "hover:border-emerald-300 hover:text-emerald-700",
+    dot: "bg-emerald-500"
+  },
+  "AI/ML": {
+    active: "bg-blue-500 text-white border-blue-500",
+    hover: "hover:border-blue-300 hover:text-blue-700",
+    dot: "bg-blue-500"
+  },
+  Bio: {
+    active: "bg-violet-500 text-white border-violet-500",
+    hover: "hover:border-violet-300 hover:text-violet-700",
+    dot: "bg-violet-500"
+  },
+  Robotics: {
+    active: "bg-orange-500 text-white border-orange-500",
+    hover: "hover:border-orange-300 hover:text-orange-700",
+    dot: "bg-orange-500"
+  },
+  Crypto: {
+    active: "bg-amber-500 text-white border-amber-500",
+    hover: "hover:border-amber-300 hover:text-amber-700",
+    dot: "bg-amber-500"
+  },
+  Other: {
+    active: "bg-slate-500 text-white border-slate-500",
+    hover: "hover:border-slate-300 hover:text-slate-700",
+    dot: "bg-slate-500"
+  },
+};
+
 export function FilterBar({
   selectedCategories,
   onCategoryChange,
@@ -38,27 +72,33 @@ export function FilterBar({
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => onCategoryChange([])}
-              className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider rounded-full border transition-all duration-200 ${
+              className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider rounded-full border transition-all duration-200 flex items-center gap-1.5 ${
                 selectedCategories.length === 0
                   ? "bg-charcoal text-cream border-charcoal"
                   : "bg-transparent text-charcoal/60 border-charcoal/15 hover:border-charcoal/30 hover:text-charcoal"
               }`}
             >
+              <span className={`w-1.5 h-1.5 rounded-full ${selectedCategories.length === 0 ? 'bg-cream' : 'bg-charcoal/40'}`} />
               All
             </button>
-            {allCategories.map((category) => (
-              <button
-                key={category}
-                onClick={() => toggleCategory(category)}
-                className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider rounded-full border transition-all duration-200 ${
-                  selectedCategories.includes(category)
-                    ? "bg-charcoal text-cream border-charcoal"
-                    : "bg-transparent text-charcoal/60 border-charcoal/15 hover:border-charcoal/30 hover:text-charcoal"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+            {allCategories.map((category) => {
+              const colors = categoryColors[category];
+              const isSelected = selectedCategories.includes(category);
+              return (
+                <button
+                  key={category}
+                  onClick={() => toggleCategory(category)}
+                  className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider rounded-full border transition-all duration-200 flex items-center gap-1.5 ${
+                    isSelected
+                      ? colors.active
+                      : `bg-transparent text-charcoal/60 border-charcoal/15 ${colors.hover}`
+                  }`}
+                >
+                  <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-white' : colors.dot}`} />
+                  {category}
+                </button>
+              );
+            })}
           </div>
 
           {/* Search and view toggle */}
