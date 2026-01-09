@@ -10,6 +10,7 @@ interface ViewToggleProps {
 export function ViewToggle({ mode, onChange }: ViewToggleProps) {
   return (
     <div className="flex items-center gap-0.5 p-0.5 border border-charcoal/15 rounded-full">
+      {/* Grid view */}
       <button
         onClick={() => onChange("grid")}
         className={`p-1.5 rounded-full transition-all duration-200 ${
@@ -18,6 +19,7 @@ export function ViewToggle({ mode, onChange }: ViewToggleProps) {
             : "text-charcoal/40 hover:text-charcoal"
         }`}
         aria-label="Grid view"
+        title="Grid view"
       >
         <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
           <path
@@ -27,6 +29,24 @@ export function ViewToggle({ mode, onChange }: ViewToggleProps) {
           />
         </svg>
       </button>
+
+      {/* Table view */}
+      <button
+        onClick={() => onChange("table")}
+        className={`p-1.5 rounded-full transition-all duration-200 ${
+          mode === "table"
+            ? "bg-charcoal text-cream"
+            : "text-charcoal/40 hover:text-charcoal"
+        }`}
+        aria-label="Table view"
+        title="Table view"
+      >
+        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+        </svg>
+      </button>
+
+      {/* Timeline view */}
       <button
         onClick={() => onChange("timeline")}
         className={`p-1.5 rounded-full transition-all duration-200 ${
@@ -35,6 +55,7 @@ export function ViewToggle({ mode, onChange }: ViewToggleProps) {
             : "text-charcoal/40 hover:text-charcoal"
         }`}
         aria-label="Timeline view"
+        title="Timeline view"
       >
         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

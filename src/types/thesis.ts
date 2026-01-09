@@ -39,7 +39,7 @@ export interface NotionBlock {
   children?: NotionBlock[];
 }
 
-export type ViewMode = "grid" | "timeline";
+export type ViewMode = "grid" | "timeline" | "table";
 
 export interface FilterState {
   categories: ThesisCategory[];

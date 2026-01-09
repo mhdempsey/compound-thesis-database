@@ -25,6 +25,16 @@ export function Hero() {
               in areas we find compelling.
             </p>
 
+            {/* Vonnegut quote */}
+            <blockquote className="mt-8 pl-4 border-l-2 border-charcoal/20">
+              <p className="font-serif text-base md:text-lg italic text-charcoal/70 leading-relaxed">
+                &ldquo;I want to stay as close to the edge as I can without going over. Out on the edge you see all kinds of things you can&apos;t see from the center.&rdquo;
+              </p>
+              <cite className="block mt-2 font-mono text-xs text-charcoal/40 not-italic">
+                — Kurt Vonnegut
+              </cite>
+            </blockquote>
+
             {/* Scientific decoration */}
             <div className="mt-8 flex items-center gap-4">
               <div className="h-px w-12 bg-charcoal/20" />

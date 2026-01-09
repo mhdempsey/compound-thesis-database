@@ -5,6 +5,7 @@ import { Thesis, ThesisCategory, ViewMode } from "@/types/thesis";
 import { FilterBar } from "./FilterBar";
 import { ThesisGrid } from "./ThesisGrid";
 import { ThesisTimeline } from "./ThesisTimeline";
+import { ThesisTable } from "./ThesisTable";
 import { searchTheses, filterByCategories } from "@/lib/notion-helpers";
 import { Container } from "@/components/layout/Container";
 
@@ -62,6 +63,8 @@ export function ThesisListClient({ initialTheses }: ThesisListClientProps) {
           </div>
         ) : viewMode === "grid" ? (
           <ThesisGrid theses={filteredTheses} />
+        ) : viewMode === "table" ? (
+          <ThesisTable theses={filteredTheses} />
         ) : (
           <ThesisTimeline theses={filteredTheses} />
         )}
