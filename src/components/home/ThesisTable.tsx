@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Thesis } from "@/types/thesis";
 import { CategoryBadge } from "@/components/ui/CategoryBadge";
@@ -57,47 +56,40 @@ export function ThesisTable({ theses }: ThesisTableProps) {
           </tr>
         </thead>
         <tbody>
-          <AnimatePresence mode="popLayout">
-            {sortedTheses.map((thesis, index) => (
-              <motion.tr
-                key={thesis.id}
-                layout
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ delay: index * 0.02 }}
-                className="group border-b border-charcoal/5 hover:bg-white/50 transition-colors"
-              >
-                <td className="py-4 pr-4">
-                  <Link
-                    href={`/thesis/${thesis.slug}`}
-                    className="block group-hover:text-charcoal/70 transition-colors"
-                  >
-                    <span className="font-serif text-base md:text-lg font-medium text-charcoal">
-                      {thesis.name}
-                    </span>
-                  </Link>
-                </td>
-                <td className="py-4 pr-4 hidden md:table-cell">
-                  <div className="flex flex-wrap gap-1">
-                    {thesis.categories.slice(0, 2).map((cat) => (
-                      <CategoryBadge key={cat} category={cat} size="sm" />
-                    ))}
-                  </div>
-                </td>
-                <td className="py-4 pr-4 hidden lg:table-cell">
-                  <p className="font-mono text-xs text-charcoal-light line-clamp-1 max-w-md">
-                    {thesis.oneLiner}
-                  </p>
-                </td>
-                <td className="py-4 text-right">
-                  <span className="font-mono text-xs text-charcoal/40">
-                    {formatDate(thesis.publicationDate, thesis.lastEditedAt)}
+          {sortedTheses.map((thesis) => (
+            <tr
+              key={thesis.id}
+              className="group border-b border-charcoal/5 hover:bg-white/50 transition-colors"
+            >
+              <td className="py-4 pr-4">
+                <Link
+                  href={`/thesis/${thesis.slug}`}
+                  className="block group-hover:text-charcoal/70 transition-colors"
+                >
+                  <span className="font-serif text-base md:text-lg font-medium text-charcoal">
+                    {thesis.name}
                   </span>
-                </td>
-              </motion.tr>
-            ))}
-          </AnimatePresence>
+                </Link>
+              </td>
+              <td className="py-4 pr-4 hidden md:table-cell">
+                <div className="flex flex-wrap gap-1">
+                  {thesis.categories.slice(0, 2).map((cat) => (
+                    <CategoryBadge key={cat} category={cat} size="sm" />
+                  ))}
+                </div>
+              </td>
+              <td className="py-4 pr-4 hidden lg:table-cell">
+                <p className="font-mono text-xs text-charcoal-light line-clamp-1 max-w-md">
+                  {thesis.oneLiner}
+                </p>
+              </td>
+              <td className="py-4 text-right">
+                <span className="font-mono text-xs text-charcoal/40">
+                  {formatDate(thesis.publicationDate, thesis.lastEditedAt)}
+                </span>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
