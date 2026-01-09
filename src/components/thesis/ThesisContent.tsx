@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Thesis, NotionBlock } from "@/types/thesis";
 import { CategoryBadge } from "@/components/ui/CategoryBadge";
 import { NotionRenderer } from "./NotionRenderer";
@@ -48,6 +49,26 @@ export function ThesisContent({ thesis, blocks }: ThesisContentProps) {
           Back to all theses
         </Link>
       </motion.div>
+
+      {/* Cover Image */}
+      {thesis.coverImage && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-10 -mx-4 md:mx-0"
+        >
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl">
+            <Image
+              src={thesis.coverImage}
+              alt={thesis.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+              priority
+            />
+          </div>
+        </motion.div>
+      )}
 
       {/* Header */}
       <motion.header

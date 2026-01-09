@@ -35,7 +35,7 @@ export function ThesisListClient({ initialTheses }: ThesisListClientProps) {
   }, [initialTheses, selectedCategories, searchQuery]);
 
   return (
-    <div className="pb-16">
+    <div className="pb-16 compound-gradient-bg">
       <FilterBar
         selectedCategories={selectedCategories}
         onCategoryChange={setSelectedCategories}

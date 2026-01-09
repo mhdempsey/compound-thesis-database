@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "./Container";
 
 export function Header() {
@@ -17,13 +18,14 @@ export function Header() {
             href="/"
             className="flex items-center gap-3 group"
           >
-            {/* Logo mark */}
-            <div className="w-6 h-6 rounded-full border border-charcoal/20 flex items-center justify-center group-hover:border-charcoal/40 transition-colors">
-              <div className="w-2 h-2 rounded-full bg-charcoal/60" />
-            </div>
-            <span className="font-mono text-xs uppercase tracking-[0.15em] text-charcoal/70 group-hover:text-charcoal transition-colors">
-              Compound
-            </span>
+            <Image
+              src="/compound-logo.svg"
+              alt="Compound"
+              width={160}
+              height={40}
+              className="h-8 w-auto"
+              priority
+            />
           </Link>
           <nav className="flex items-center gap-6">
             <Link
@@ -32,14 +34,6 @@ export function Header() {
             >
               Archive
             </Link>
-            <a
-              href="https://twitter.com/compoundarxiv"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-xs uppercase tracking-wider text-charcoal/50 hover:text-charcoal transition-colors"
-            >
-              @compoundarxiv
-            </a>
             <a
               href="https://compound.vc"
               target="_blank"

@@ -102,3 +102,28 @@ body {
 .rounded-artistic {
   border-radius: 1.5rem;
 }
+
+/* Compound arc gradient background */
+.compound-gradient-bg {
+  position: relative;
+}
+
+.compound-gradient-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1400px;
+  height: 600px;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(147, 197, 253, 0.08) 0%,
+    rgba(167, 139, 250, 0.06) 25%,
+    rgba(251, 146, 60, 0.04) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}

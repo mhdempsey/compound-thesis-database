@@ -1,0 +1,29 @@
+<svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wireframe sphere -->
+  <g transform="translate(50, 50)">
+    <!-- Outer circle -->
+    <ellipse cx="0" cy="0" rx="40" ry="40" fill="none" stroke="#1A1A1A" stroke-width="1"/>
+
+    <!-- Horizontal ellipses (latitudes) -->
+    <ellipse cx="0" cy="0" rx="40" ry="8" fill="none" stroke="#1A1A1A" stroke-width="0.8"/>
+    <ellipse cx="0" cy="-15" rx="36" ry="6" fill="none" stroke="#1A1A1A" stroke-width="0.8"/>
+    <ellipse cx="0" cy="-28" rx="28" ry="4" fill="none" stroke="#1A1A1A" stroke-width="0.8"/>
+    <ellipse cx="0" cy="15" rx="36" ry="6" fill="none" stroke="#1A1A1A" stroke-width="0.8"/>
+    <ellipse cx="0" cy="28" rx="28" ry="4" fill="none" stroke="#1A1A1A" stroke-width="0.8"/>
+
+    <!-- Vertical meridians -->
+    <ellipse cx="0" cy="0" rx="8" ry="40" fill="none" stroke="#1A1A1A" stroke-width="0.8"/>
+    <ellipse cx="0" cy="0" rx="24" ry="40" fill="none" stroke="#1A1A1A" stroke-width="0.8"/>
+    <line x1="0" y1="-40" x2="0" y2="40" stroke="#1A1A1A" stroke-width="0.8"/>
+
+    <!-- Converging lines to top point -->
+    <line x1="-40" y1="0" x2="0" y2="-40" stroke="#1A1A1A" stroke-width="0.6"/>
+    <line x1="-30" y1="26" x2="0" y2="-40" stroke="#1A1A1A" stroke-width="0.6"/>
+    <line x1="0" y1="40" x2="0" y2="-40" stroke="#1A1A1A" stroke-width="0.6"/>
+    <line x1="30" y1="26" x2="0" y2="-40" stroke="#1A1A1A" stroke-width="0.6"/>
+    <line x1="40" y1="0" x2="0" y2="-40" stroke="#1A1A1A" stroke-width="0.6"/>
+  </g>
+
+  <!-- COMPOUND text -->
+  <text x="120" y="58" font-family="'EB Garamond', Georgia, serif" font-size="32" font-weight="400" letter-spacing="0.15em" fill="#1A1A1A">COMPOUND</text>
+</svg>
